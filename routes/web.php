@@ -21,3 +21,9 @@ Route::get('/about','PagesController@about'
 Route::get('/courses','ContactController@courses'
 );
 Route::post('/sendmessage','ContactController@sendEmail')->name('contact.send');
+
+Route::get('/admin','PagesController@admin');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\PagesController::class, 'admin'])->name('admin');
+Route::resource('categories','CategoriesController');
